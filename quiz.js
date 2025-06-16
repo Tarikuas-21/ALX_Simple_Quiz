@@ -1,26 +1,48 @@
-function checkAnswer() {
-    // Identify the correct answer
-    const correctAnswer = "4";
-    
-    // Retrieve the user's answer
-    const userAnswer = document.querySelector('input[name="quiz"]:checked');
-
-    // Check if an answer has been selected
-    if (!userAnswer) {
-        document.getElementById('feedback').textContent = "Please select an answer.";
-        return;
-    }
-
-    // Access the value of the selected radio button
-    const userValue = userAnswer.value;
-
-    // Compare the user's answer with the correct answer
-    if (userAnswer === correctAnswer) {
-        document.getElementById('feedback').textContent = "Correct! Well done.";
-    } else {
-        document.getElementById('feedback').textContent = "That's incorrect. Try again!";
-    }
+// Arithmetic Functions
+function add(number1, number2) {
+    return number1 + number2;
 }
 
-// Add an event listener to the Submit Answer button
-document.getElementById('submit-answer').addEventListener('click', checkAnswer);
+function subtract(number1, number2) {
+    return number1 - number2;
+}
+
+function multiply(number1, number2) {
+    return number1 * number2;
+}
+
+function divide(number1, number2) {
+    if (number2 === 0) {
+        return 'Error: Division by zero';
+    }
+    return number1 / number2;
+}
+
+// Event Listeners
+document.getElementById('add').addEventListener('click', function() {
+    const number1 = parseFloat(document.getElementById('number1').value) || 0;
+    const number2 = parseFloat(document.getElementById('number2').value) || 0;
+    const result = add(number1, number2);
+    document.getElementById('calculation-result').textContent = result;
+});
+
+document.getElementById('subtract').addEventListener('click', function() {
+    const number1 = parseFloat(document.getElementById('number1').value) || 0;
+    const number2 = parseFloat(document.getElementById('number2').value) || 0;
+    const result = subtract(number1, number2);
+    document.getElementById('calculation-result').textContent = result;
+});
+
+document.getElementById('multiply').addEventListener('click', function() {
+    const number1 = parseFloat(document.getElementById('number1').value) || 0;
+    const number2 = parseFloat(document.getElementById('number2').value) || 0;
+    const result = multiply(number1, number2);
+    document.getElementById('calculation-result').textContent = result;
+});
+
+document.getElementById('divide').addEventListener('click', function() {
+    const number1 = parseFloat(document.getElementById('number1').value) || 0;
+    const number2 = parseFloat(document.getElementById('number2').value) || 0;
+    const result = divide(number1, number2);
+    document.getElementById('calculation-result').textContent = result;
+});
