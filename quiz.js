@@ -15,7 +15,7 @@ function checkAnswer() {
     const userValue = userAnswer.value;
 
     // Compare the user's answer with the correct answer
-    if (userValue === correctAnswer) {
+    if (userAnswer === correctAnswer) {
         document.getElementById('feedback').textContent = "Correct! Well done.";
     } else {
         document.getElementById('feedback').textContent = "That's incorrect. Try again!";
